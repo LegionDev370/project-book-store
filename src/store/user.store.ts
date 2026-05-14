@@ -1,11 +1,8 @@
 import { create } from "zustand";
-import type { IUser } from "../types/user.type";
-
-interface IUserStore {
-  user: any;
-}
+import type { IUser, IUserResponse, IUserStore } from "../types/user.type";
 
 export const useUserStore = create<IUserStore>((set) => ({
   user: null,
-  setUser: (user: IUser) => set((state) => ({ ...state, user: user })),
+  setUser: (user: IUserResponse) => set((state) => ({ ...state, user: user })),
+  logOut: () => set((state) => ({ ...state, user: null })),
 }));
